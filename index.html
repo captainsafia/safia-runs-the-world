@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Safia Runs the World</title>
+    </head>
+    <style>
+        body {
+            margin: 0;
+            margin-top: 5%;
+            height: 100%;
+            font-family: sans-serif;
+            text-align: center;
+        }
+        h1 {
+            font-size: 3.25em;
+        }
+    </style>
+    <body>
+        <h1>Safia Runs the World</h1>
+        <div id="container"></div>
+        <script src="scripts/raphael-min.js"></script>
+        <script src="scripts/us-map-svg.js"></script>
+        <script>
+            const runIn = ['il', 'nv', 'ny', 'pa', 'mn', 'tx', 'ut', 'wa'];
+            const R = Raphael("container", 1000, 900);
+            const notRun = {
+                "fill": "#d3d3d3",
+                "stroke": "#fff",
+                "stroke-opacity": "1",
+                "stroke-linejoin": "round",
+                "stroke-miterlimit": "4",
+                "stroke-width": "0.75",
+                "stroke-dasharray": "none"
+            };
+
+            const run = {
+                "fill": "#8e44ad",
+                "stroke": "#fff",
+                "stroke-opacity": "1",
+                "stroke-linejoin": "round",
+                "stroke-miterlimit": "4",
+                "stroke-width": "0.75",
+                "stroke-dasharray": "none"
+            };
+
+            for (var state in usMap) {
+                if (runIn.indexOf(state) >= 0) {
+                    R.path(usMap[state]).attr(run);
+                } else {
+                    R.path(usMap[state]).attr(notRun);
+                }
+            }
+        </script>
+    </body>
+</html>

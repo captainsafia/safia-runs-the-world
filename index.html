@@ -32,18 +32,17 @@
                 "stroke-dasharray": "none"
             };
 
-            const run = {
-                "fill": "#8e44ad",
-                "stroke": "#fff",
-                "stroke-opacity": "1",
-                "stroke-linejoin": "round",
-                "stroke-miterlimit": "4",
-                "stroke-width": "0.75",
-                "stroke-dasharray": "none"
-            };
-
             for (var state in usMap) {
                 if (runIn.indexOf(state) >= 0) {
+                    var run = {
+                        "fill": '#'+Math.floor(Math.random()*16777215).toString(16),
+                        "stroke": "#fff",
+                        "stroke-opacity": "1",
+                        "stroke-linejoin": "round",
+                        "stroke-miterlimit": "4",
+                        "stroke-width": "0.75",
+                        "stroke-dasharray": "none"
+                    };
                     R.path(usMap[state]).attr(run);
                 } else {
                     R.path(usMap[state]).attr(notRun);
